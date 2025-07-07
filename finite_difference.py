@@ -4,7 +4,7 @@ import numpy as np
 
 class FiniteDifferenceTable(Table):
 
-    def __init__(self, x_cols, y_cols, expr, intrvl, step_size, _symbol):
+    def __init__(self, x_cols, y_cols, expr, intrvl, step_size, _symbol, expr_mode=True):
         self._symbol = _symbol
         self.x_cols = x_cols
         self.y_cols = y_cols
@@ -12,11 +12,13 @@ class FiniteDifferenceTable(Table):
         self.expr = expr
         self.intrvl = intrvl
         self.step_size = step_size
+        self.expr_mode = expr_mode
 
     def populate_cols(self):
         for idx, x in enumerate(np.arange(int(self.intrvl[0]), int(self.intrvl[1]), self.step_size)):
             self.x_cols[idx] = round(x, 2)
-            self.y_cols[idx] = np.round(float(self.expr.subs(self._symbol, x).evalf()),2)
+            self.y_cols[idx] = np.round(
+                float(self.expr.subs(self._symbol, x).evalf()), 2)
 
     def create(self):
         self.label.append('x')
@@ -24,7 +26,8 @@ class FiniteDifferenceTable(Table):
         for i in range(int(self.ncols)-2):
             self.label.append(f'Δ{i+1}')
 
-        self.populate_cols()
+        if self.expr_mode:
+            self.populate_cols()
 
         self.table[:, 0] = self.x_cols
         self.table[:, 1] = self.y_cols
