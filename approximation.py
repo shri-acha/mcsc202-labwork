@@ -2,8 +2,7 @@ from sympy import symbols
 
 
 class Approximation():
-    def __init__(self, init_int, exprs, _symbol, tolerance):
-        self.init_int = init_int
+    def __init__(self, exprs, _symbol, tolerance):
         self.function = exprs
         self._symbol = _symbol
         self.tolerance = tolerance

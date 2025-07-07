@@ -2,12 +2,18 @@ from approximation import Approximation
 
 
 class Bisection(Approximation):
+    def __init__(self, exprs, _symbol, tolerance, init_int):
+        self.function = exprs
+        self._symbol = _symbol
+        self.tolerance = tolerance
+        self.init_int = init_int
+        self.root = None
 
     def approximate(self):
         tolerance = self.tolerance
         if self.root:
             y0 = self.function.subs(self._symbol, self.root)
-            if ( tolerance >= abs(y0)):
+            if (tolerance >= abs(y0)):
                 # print(f'{tolerance} {y0}')
                 return self.root
 
