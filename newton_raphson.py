@@ -17,6 +17,7 @@ class NewtonRaphson(Approximation):
 
         print(f'[DEBUG] {x0} {df0} {f0}\n')
 
+        # from formula
         self.root = x0 - f0/df0
 
         if (self.root):
@@ -26,5 +27,8 @@ class NewtonRaphson(Approximation):
             if (f1 == 0):
                 return self.root
 
+        # initial guess for iteration is the root
         self.init_guess = self.root
+
+        # recursive call 
         return self.approximate()
