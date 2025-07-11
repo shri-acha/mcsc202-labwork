@@ -1,6 +1,6 @@
 import numpy as np
 from sympy import symbols, parse_expr
-from finite_difference import FiniteDifferenceTable
+from lab3.finite_difference import FiniteDifferenceTable
 import math
 
 

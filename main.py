@@ -1,27 +1,33 @@
-from bisection import Bisection
-from newton_raphson import NewtonRaphson
-from newtons_interpolation import Data
-from finite_difference import FiniteDifferenceTable
+
+from lab1.bisection import Bisection
+from lab2.newton_raphson import NewtonRaphson
+from lab3.finite_difference import FiniteDifferenceTable
+from lab4.newtons_interpolation import Data
+from lab5.lagrange_interpolation import Data
+
 import numpy as np
 from sympy import symbols, sin, solve, exp, simplify, parse_expr
-from lagrange_interpolation import Data
 
 
 def main():
     x = symbols('x')
     h = symbols('h')
-    # expr = exp(x)
-    # solution = solve(expr, x)
+    expr_bis = x**2 - sin(x)
+    expr_new = exp(x) - 4*x
+    expr_fsdt = exp(x)
 
     # BISECTION AND NEWTON RAPHSON METHOD ON SOLVING
     # UNCOMMENT THIS BLOCK
-    # bsc = Bisection((-3, -1), expr, x, 0.01)
+
+    # bsc = Bisection(expr_bis,x, 0.001,(0.5, 1))
     # print('[DEBUG]  x     df    f\n')
-    # nwtn = NewtonRaphson(expr, x, 0.0001, 3.0)
+    # nwtn = NewtonRaphson(expr_new, x, 0.0001, 3.0)
+    # print(f'[APPROXIMATE]:{bsc.approximate()}')
+    # print(f'[APPROXIMATE]:{nwtn.approximate()}')
 
     # FINITE STATE DIFFERENCE TABLE
     # UNCOMMENT THIS BLOCK
-    # fsdt = FiniteDifferenceTable(np.zeros(20), np.zeros(20), expr, (-1, 1), 0.1,x)
+    # fsdt = FiniteDifferenceTable(np.zeros(20), np.zeros(20), expr_fsdt, (-1, 1), 0.1,x)
     # fsdt.create()
     # fsdt.print()
 

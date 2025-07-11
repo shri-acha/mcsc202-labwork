@@ -1,5 +1,6 @@
 from table import Table
 import numpy as np
+import math
 
 
 class FiniteDifferenceTable(Table):

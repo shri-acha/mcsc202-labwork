@@ -1,4 +1,3 @@
-from newtons_interpolation import FiniteDifferenceTable
 from sympy import symbols,simplify,parse_expr
 
 
