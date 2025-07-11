@@ -20,8 +20,10 @@ def main():
     # fsdt.print()
     handler = Data(np.array([0,1,2,3,4,5]),np.array([0,0.165,0.232,0.371,0.468,0.502]),step=1)
 
-    handler.interpolate()
-    print(handler.expr.subs(x,2).subs(h,1))
+    # handler.finterpolate()
+    # print(simplify(handler.expr).subs(x,3))
+    handler.binterpolate()
+    print(simplify(handler.expr).subs(x,5))
     handler.fsdt.print()
 
 
