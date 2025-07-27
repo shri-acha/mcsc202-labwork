@@ -4,17 +4,22 @@ from lab2.newton_raphson import NewtonRaphson
 from lab3.finite_difference import FiniteDifferenceTable
 from lab4.newtons_interpolation import Data
 from lab5.lagrange_interpolation import Data
+from lab6.trapezoidal_rule import Trapezoidal_Integration
+from lab7.SimpsonsThird import SimpsonsThird
+from lab8910.mod import *
+from lab91011.mod import *
 
 import numpy as np
-from sympy import symbols, sin, solve, exp, simplify, parse_expr
+from sympy import symbols, sin, solve, exp, simplify, parse_expr, pi
 
 
 def main():
     x = symbols('x')
     h = symbols('h')
-    expr_bis = x**2 - sin(x)
-    expr_new = exp(x) - 4*x
-    expr_fsdt = exp(x)
+    # expr_bis = x**2 - sin(x)
+    # expr_new = exp(x) - 4*x
+    # expr_fsdt = exp(x)
+    # expr_trap = sin(x)/exp(x)
 
     # BISECTION AND NEWTON RAPHSON METHOD ON SOLVING
     # UNCOMMENT THIS BLOCK
@@ -30,7 +35,6 @@ def main():
     # fsdt = FiniteDifferenceTable(np.zeros(20), np.zeros(20), expr_fsdt, (-1, 1), 0.1,x)
     # fsdt.create()
     # fsdt.print()
-
     # NEWTON'S FORWARD AND BACKWARD INTERPOLATION
     # UNCOMMENT THIS BLOCK
     #
@@ -48,6 +52,12 @@ def main():
     #                 np.array([0, 1, 81, 256, 625]))
 
     # print(handler_.interpolate_().subs(x, 2))
+
+    # integrator = Trapezoidal_Integration(expr_trap, (0, pi), 20, x)
+    # integrator.integrate()
+
+    # integrator = SimpsonsThird(expr_trap, (0, pi), 40, x)
+    # integrator.integrate()
 
 
 if __name__ == "__main__":
